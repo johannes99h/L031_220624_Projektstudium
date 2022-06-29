@@ -1,0 +1,4 @@
+adc.c:33:6:scheduler	16	static
+adc.c:47:11:ClearADCBuffer	24	static
+adc.c:62:11:GetADCMeanValue	24	static
+adc.c:95:11:GetADCResistance	32	static
