@@ -1,4 +1,4 @@
-#include "transmission.h"
+ #include "transmission.h"
 
 /* Definition der Variablen ---------------------------------------------------------*/
 
@@ -18,22 +18,15 @@ void TxUART(uint8_t adcChannels, uint8_t *tempC, uint32_t millis)
 {
 	uint8_t ntcNumber = 0;
 
-	// "Header" -> sollte von auswertender Software erkannt werden
+	// "Header"
 	blankTxUART(5);
 
 	// "Timer-Information"
-	millis = HAL_GetTick();
 	timeTxUART(millis);
 	blankTxUART(2);
 
-
 	for(int j = 0; j < adcChannels; j++)
 	{
-		// ntcNumber = j;
-
-		// ntcNumberTxUART(ntcNumber);
-		// blankTxUART(1);
-
 		// Übergabe der Temperatur aus dem Array an temp. Integer
 		uint8_t *tmpTempC = &tempC[j];
 
@@ -46,7 +39,6 @@ void TxUART(uint8_t adcChannels, uint8_t *tempC, uint32_t millis)
 	// Ende der Nachricht -> NewLine um in Matlab mit den Daten besser umgehen zu können
 	uint8_t endLine[2] = "\n\r";			// evtl. auch CR/ASCII-13 notw. um an Zeilenanfang zu gelangen
 	HAL_UART_Transmit(&huart2, endLine, sizeof(endLine), 10);
-
 }
 
 
@@ -109,7 +101,6 @@ void timeTxUART(uint32_t millis)
 
 	HAL_UART_Transmit(&huart2, (uint8_t *)bufferTime, bufferTimeSize, 10);
 }
-
 
 /*
  * Einstellungen für Logic Analyzer

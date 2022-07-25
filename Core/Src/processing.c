@@ -2,7 +2,7 @@
 
 /* Definition der Variablen ---------------------------------------------------------*/
 
-const 	uint16_t 		LUT[151] = {		// mit Näherungsformel berechnete Widerstandswerte in 1-Grad-Schritten für Murata NXFT15XH103-NTCs
+const static uint16_t 	LUT[151] = {		// mit Näherungsformel berechnete Widerstandswerte in 1-Grad-Schritten für Murata NXFT15XH103-NTCs
 											28224, 	26978, 	25796, 	24674, 	23608, 	22595, 	21632, 	20717, 	19847, 	19019,
 											18231, 	17481, 	16767, 	16087, 	15438, 	14820, 	14231, 	13669, 	13133, 	12622,
 											12133, 	11667, 	11221, 	10796, 	10389, 	10000, 	9628, 	9272, 	8932, 	8606,

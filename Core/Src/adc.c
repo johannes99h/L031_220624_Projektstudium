@@ -32,6 +32,8 @@ const 	uint8_t 	adcSamples = 1;								// erfüllt den gleichen Zweck wie buff_l
  */
 void scheduler()
 {
+	uint32_t millis = 0;
+
 	ClearADCBuffer(adcBuffer);
 
 	GetADCMeanValue(adcVal, 5);
@@ -39,6 +41,8 @@ void scheduler()
 	GetADCResistance(adcBufferMeanValue);
 
 	GetTempCArray(tempC, adcChannel, LUT, ntcResistance, LUToldValues);
+
+	millis = HAL_GetTick();
 
 	TxUART(adcChannel, tempC, millis);
 }
